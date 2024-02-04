@@ -1,0 +1,91 @@
+@startuml
+class BazaPolaczenie {
+- Connection connection
++ Connection getConnection()
+}
+class SprzedajSamochod {
+- JTextField idField
+- JButton zatwierdzButton
+- JButton powrotButton
+- JPanel sprzedajsamochod
+- BazaPolaczenie bazaPolaczenie
+- void zatwierdzDane()
+- void usunZBazy(int)
+}
+class Main {
++ {static} void main(String[])
+}
+class SzukajSamochod {
+- JPanel szukajsamochod
+- JButton powrotButton
+- JButton szukajButton
+- JTextField pojemnoscSilnikaField1
+- JTextField rokProdukcjiField2
+- JTextField cenaField3
+- JTable tabela
+- BazaPolaczenie bazaPolaczenie
+- void szukajDane()
+}
+class WszystkieSamochody {
+- JPanel wszystkiesamochody
+- JButton powrotButton
+- JTable tabela
+- BazaPolaczenie bazaPolaczenie
+- void wczytajDaneSamochodow()
+}
+class AktualizujSamochod {
+- JPanel aktualizujsamochod
+- JButton zatwierdzButton
+- JButton powrotButton
+- JTextField idField
+- JButton sprawdzIDButton
+- JTextField markaField1
+- JTextField modelField1
+- JTextField rokProdukcjiField1
+- JTextField pojemnoscSilnikaField1
+- JTextField mocSilnikaField1
+- JTextField cenaField1
+- JTextField kolorField1
+- JTextField rodzajPaliwaField1
+- BazaPolaczenie bazaPolaczenie
+- boolean czyIstniejeSamochod(String)
++ void zatwierdzDane()
+- void aktualizujDaneSamochodu(String,String,String,String,String,String,String,String,String)
+}
+class StronaGlowna {
+- JLabel zdjecie
+- JPanel naglowek
+- JButton kupButton
+- JButton sprzedajButton
+- JButton aktualizujButton
+- JButton wszystkieButton
+- JButton szukajButton
+- JButton zakonczButton
+- JPanel stronaGlowna
+}
+class KupSamochod {
+- JTextField markaField
+- JTextField modelField
+- JTextField rokProdukcjiField
+- JTextField pojemnoscSilnikaField
+- JTextField mocSilnikaField
+- JTextField cenaField
+- JTextField kolorField
+- JTextField rodzajPaliwaField
+- JButton zatwierdzButton
+- JPanel kupsamochod
+- JButton powrotButton
+- BazaPolaczenie bazaPolaczenie
+- void zatwierdzDane()
+- boolean czyPolaWypelnione(String)
+- void zapiszDoBazy(String,String,String,String,String,String,String,String)
+}
+
+
+JFrame <|-- SprzedajSamochod
+JFrame <|-- SzukajSamochod
+JFrame <|-- WszystkieSamochody
+JFrame <|-- AktualizujSamochod
+JFrame <|-- StronaGlowna
+JFrame <|-- KupSamochod
+@enduml
